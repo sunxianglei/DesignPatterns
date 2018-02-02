@@ -5,6 +5,9 @@ import com.xianglei.myapplication.patterns.abstractfactory.BaiduFactory;
 import com.xianglei.myapplication.patterns.abstractfactory.Coder;
 import com.xianglei.myapplication.patterns.abstractfactory.CompanyFactory;
 import com.xianglei.myapplication.patterns.abstractfactory.Producter;
+import com.xianglei.myapplication.patterns.adapter.RequestAdapter;
+import com.xianglei.myapplication.patterns.adapter.RequestAdapterOne;
+import com.xianglei.myapplication.patterns.adapter.RequestFrame;
 import com.xianglei.myapplication.patterns.builder.Person;
 import com.xianglei.myapplication.patterns.factorymethod.CarFactory;
 import com.xianglei.myapplication.patterns.factorymethod.PlaneFactory;
@@ -18,6 +21,7 @@ import com.xianglei.myapplication.patterns.single.Singleton3;
 import com.xianglei.myapplication.patterns.single.Singleton4;
 
 import org.junit.Test;
+import org.junit.runner.Request;
 
 /**
  * @author sunxianglei
@@ -77,6 +81,13 @@ public class PatternsTest {
         Singleton2.getInstance().test();
         Singleton3.getInstance().test();
         Singleton4.INSTANCE.test();
+    }
+
+    @Test
+    public void testAdapter(){
+        RequestFrame requestFrame = new RequestFrame();
+        RequestAdapter requestAdapter = new RequestAdapterOne(requestFrame);
+        requestAdapter.request();
     }
 
 }
